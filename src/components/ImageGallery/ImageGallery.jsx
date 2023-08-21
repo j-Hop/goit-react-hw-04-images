@@ -6,7 +6,6 @@ export const ImageGallery = ({ images, onOpenModal }) => {
   return (
     <ul className={css.ImageGallery}>
       {images.map(image => (
-        // console.log(image)
         <ImageGalleryItem
           key={image.id}
           image={image}
@@ -18,6 +17,10 @@ export const ImageGallery = ({ images, onOpenModal }) => {
 };
 
 ImageGallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  images: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   onOpenModal: PropTypes.func.isRequired,
 };
